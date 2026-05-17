@@ -32,6 +32,10 @@ module Program =
             app.UseExceptionHandler("/Home/Error")
             app.UseHsts() |> ignore // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 
+        let pathBase = System.Environment.GetEnvironmentVariable("ASPNETCORE_PATHBASE")
+        if not (System.String.IsNullOrEmpty(pathBase)) then
+            app.UsePathBase(pathBase) |> ignore
+
         app.UseStaticFiles()
         app.UseRouting()
         app.UseAuthorization()

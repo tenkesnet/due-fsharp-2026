@@ -20,6 +20,10 @@ module Program =
             app.UseExceptionHandler("/Home/Error") |> ignore
             app.UseHsts() |> ignore
 
+        let pathBase = Environment.GetEnvironmentVariable("ASPNETCORE_PATHBASE")
+        if not (String.IsNullOrEmpty(pathBase)) then
+            app.UsePathBase(pathBase) |> ignore
+
         app.UseHttpsRedirection() |> ignore
         app.UseStaticFiles() |> ignore
         app.UseRouting() |> ignore

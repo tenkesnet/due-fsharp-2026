@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /c/dev/Imre/due-fsharp-2026/Project_*/Data/*.fs)"
+    ]
+  }
+}
