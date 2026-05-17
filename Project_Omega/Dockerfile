@@ -8,5 +8,6 @@ WORKDIR /app
 COPY --from=build /app/publish .
 RUN mkdir -p /app/App_Data
 ENV ASPNETCORE_URLS=http://+:8080
+ENV DOTNET_CONTENTROOT=/app
 EXPOSE 8080
 ENTRYPOINT ["dotnet", "Konditerem.Web.dll"]
