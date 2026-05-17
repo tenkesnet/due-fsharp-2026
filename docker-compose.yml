@@ -5,6 +5,8 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       ASPNETCORE_PATHBASE: /alpha
+    networks:
+      - internal
     restart: unless-stopped
 
   omega:
@@ -15,6 +17,8 @@ services:
       ASPNETCORE_PATHBASE: /omega
     volumes:
       - omega_data:/app/App_Data
+    networks:
+      - internal
     restart: unless-stopped
 
   proxy:
@@ -26,7 +30,13 @@ services:
     depends_on:
       - alpha
       - omega
+    networks:
+      - internal
     restart: unless-stopped
 
 volumes:
   omega_data:
+
+networks:
+  internal:
+    driver: bridge
