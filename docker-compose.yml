@@ -1,5 +1,5 @@
 services:
-  alpha:
+  kondi-alpha:
     build:
       context: ./Project_Alpha
     environment:
@@ -10,7 +10,7 @@ services:
       - dokploy-network
     restart: unless-stopped
 
-  omega:
+  kondi-omega:
     build:
       context: ./Project_Omega
     environment:
